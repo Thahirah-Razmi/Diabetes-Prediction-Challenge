@@ -125,6 +125,13 @@ python DiaPredict.py
 ```
 The application will run at ``` http://127.0.0.1:5000 ```
 
+## 📸 Visual Previews  
+### DiaPredict's UI
+
+<img width="1004" height="1195" alt="image" src="https://github.com/user-attachments/assets/ee14516a-7a95-4944-aea3-9875b1399906" />
+
+
+
 ## 📊 Kaggle Submissions
 
 <img width="1920" height="1019" alt="Kaggle Submission" src="https://github.com/user-attachments/assets/b5f9bad0-513f-4cc4-833b-b3b58e308958" />
