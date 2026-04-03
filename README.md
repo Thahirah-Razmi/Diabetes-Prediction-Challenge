@@ -41,11 +41,11 @@ Performed comprehensive exploratory data analysis using `pandas`, `matplotlib`, 
 
 | Visualisation | Insight |
 |---------------|---------|
-| **Target distribution** (bar & pie) | ~35% diabetic, 65% non‑diabetic |
+| **Target distribution** (bar & pie) | ~62% diabetic, ~38% non‑diabetic |
 | **Histograms of all numeric features** | Glucose, BMI, Age show right‑skewed distributions |
-| **Boxplots by diabetes outcome** | Higher median glucose, BMI, and Age for diabetic patients |
+| **Boxplots by diabetes outcome** | Higher BMI, more belly fat (waist-to-hip ratio), higher bad cholesterol (LDL), higher triglycerides, and higher blood pressure (systolic_bp and diastolic_bp) for diabetic patients. They also exercise slightly less. |
 | **Count plots for categorical variables** | Gender, smoking status, education, income, employment, ethnicity – clear differences in diabetes prevalence |
-| **Correlation heatmap** | Glucose (0.49) and BMI (0.29) strongest positive correlations with diabetes |
+| **Correlation heatmap** | cholesterol_total & ldl_cholesterol (0.81),	bmi & waist_to_hip_ratio (0.76) and	age and systolic_bp (0.50) strongest positive correlations with diabetes |
 
 All EDA plots are included in the `/images` folder.
 
@@ -56,8 +56,8 @@ All EDA plots are included in the `/images` folder.
 | Model | Key Hyperparameters |
 |-------|----------------------|
 | **Random Forest** | n_estimators=400, max_depth=18, min_samples_leaf=30, class_weight='balanced' |
-| **XGBoost** | n_estimators=800, max_depth=8, learning_rate=0.05, scale_pos_weight=1.86 |
-| **ANN** | 2 hidden layers (128, 64) with Dropout(0.3 & 0.2), Adam optimizer, class_weight='balanced' |
+| **XGBoost** | n_estimators=800, max_depth=8, learning_rate=0.05, scale_pos_weight=scale_pos_weight |
+| **ANN** | 3 Dense Layers (128, 641, 1) with Dropout(0.3 & 0.2), Adam optimizer, class_weight='balanced' |
 
 All models use a `ColumnTransformer` with `StandardScaler` for numeric features and `OneHotEncoder` for categorical ones.
 
