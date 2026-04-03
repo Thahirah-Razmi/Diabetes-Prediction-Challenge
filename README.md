@@ -87,16 +87,13 @@ Built with **Flask** – loads the trained XGBoost pipeline (`diapredict_model.p
 
 ### 🚀 Installation
 
-<details>
 <summary><strong>1. Clone Repository</strong></summary>
   
 ```
 git clone https://github.com/Thahirah-Razmi/Diabetes-Prediction-Kaggle-Challenge.git
 cd Diabetes-Prediction-Kaggle-Challenge
 ```
-</details>
 
-<details>
 <summary><strong>2. Create Virtual Environment (Recommended)</strong></summary>
   
 ```bash
@@ -109,9 +106,7 @@ venv\Scripts\activate
 # Linux/Mac
 source venv/bin/activate
 ```
-</details>
 
-<details>
 <summary><strong>3. Install Dependencies</strong></summary>
   
 ```
