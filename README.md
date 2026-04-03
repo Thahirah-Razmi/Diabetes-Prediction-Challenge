@@ -86,12 +86,13 @@ Built with **Flask** – loads the trained XGBoost pipeline (`diapredict_model.p
 
 ### How to run locally
 
-``bash
+```
 git clone https://github.com/Thahirah-Razmi/Diabetes-Prediction-Kaggle-Challenge.git
 cd Diabetes-Prediction-Kaggle-Challenge
 pip install -r requirements.txt
 python DiaPredict.py
 # Visit http://127.0.0.1:5000
+```
 
 ## 📊 Kaggle Submissions
 
