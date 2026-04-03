@@ -1,96 +1,94 @@
-# 🩸 Diabetes Prediction Challenge - Kaggle Competition Solution
+# 🩸 Diabetes Prediction Challenge – Kaggle Competition Solution
 
 [![Python](https://img.shields.io/badge/Python-3.9+-blue)](https://www.python.org/)
 [![Flask](https://img.shields.io/badge/Flask-2.0+-green)](https://flask.palletsprojects.com/)
-[![scikit-learn](https://img.shields.io/badge/scikit--learn-1.0+-orange)](https://scikit-learn.org/)
 [![XGBoost](https://img.shields.io/badge/XGBoost-1.5+-red)](https://xgboost.readthedocs.io/)
-[![TensorFlow](https://img.shields.io/badge/TensorFlow-2.0+-yellow)](https://tensorflow.org/)
 [![Kaggle](https://img.shields.io/badge/Kaggle-Competition-blue)](https://www.kaggle.com/competitions/playground-series-s5e12)
 [![License](https://img.shields.io/badge/License-MIT-green)](./LICENSE)
 
-A complete machine learning solution for the **Kaggle Playground Series Season 5 Episode 12 - Diabetes Prediction Challenge**. This project implements and compares multiple ML algorithms including **Artificial Neural Networks (ANN)**, **XGBoost**, and **Random Forest** to predict diabetes onset. The best-performing model (XGBoost) is deployed as a production-ready **Flask web application** with a user-friendly interface.
+**End‑to‑end ML solution** for the Kaggle Playground Series S5E12 – Diabetes Prediction.  
+Three models compared: **XGBoost** (best), **Random Forest**, **Artificial Neural Network**.  
+The winning XGBoost model is deployed as a **Flask web app** for real‑time diabetes risk prediction.
 
 ---
 
 ## 📌 Table of Contents
 - [Competition Overview](#-competition-overview)
-- [Features](#-features)
-- [Tech Stack](#-tech-stack)
-- [Models Implemented](#-models-implemented)
-- [Getting Started](#-getting-started-installation)
-- [Web Application](#-web-application)
+- [EDA Highlights](#-eda-highlights)
+- [Models & Hyperparameters](#-models--hyperparameters)
+- [Performance Summary](#-performance-summary)
+- [Web App](#-web-app)
 - [Kaggle Submissions](#-kaggle-submissions)
-- [Model Performance](#-model-performance)
 - [Project Structure](#-project-structure)
-- [Visual Previews](#-visual-previews)
+- [Installation & Usage](#-installation--usage)
 - [Author](#-author)
-- [License](#-license)
 
 ---
 
 ## 🏆 Competition Overview
 
-**Playground Series Season 5 Episode 12 - Diabetes Prediction Challenge**
+- **Goal** – Predict diabetes (binary) from diagnostic health metrics  
+- **Metric** – ROC AUC  
+- **Data** – Synthetic dataset derived from the Pima Indians Diabetes dataset  
 
-This Kaggle competition focuses on predicting diabetes onset using diagnostic health metrics. The dataset contains medical predictor variables and a binary target variable indicating diabetes presence. This is a binary classification problem where models predict whether a patient has diabetes based on features like glucose level, BMI, age, blood pressure, insulin, etc.
-
-- **Goal**: Predict diabetes status (1 = diabetic, 0 = non-diabetic)
-- **Evaluation Metric**: ROC AUC Score
-- **Data Source**: Synthetic dataset derived from the original Diabetes dataset
-
-🔗 [Competition Link](https://www.kaggle.com/competitions/playground-series-s5e12)
+🔗 [Competition link](https://www.kaggle.com/competitions/playground-series-s5e12)
 
 ---
 
-## ✨ Features
+## 📊 EDA Highlights
 
-### Data Processing & Analysis
-- **Exploratory Data Analysis (EDA)** - Comprehensive data visualization and statistical analysis
-- **Missing Value Handling** - Advanced imputation strategies
-- **Feature Engineering** - Creating meaningful features from existing data
-- **Data Normalization** - StandardScaler for feature scaling
+Performed comprehensive exploratory data analysis using `pandas`, `matplotlib`, and `seaborn`:
 
-### Machine Learning Models
-- **Artificial Neural Network (ANN)** - Deep learning approach with multiple hidden layers
-- **XGBoost Classifier** - Gradient boosting with regularization (Best performing)
-- **Random Forest Classifier** - Ensemble learning with bootstrap aggregation
-- **Model Comparison** - Performance evaluation across all models
+| Visualisation | Insight |
+|---------------|---------|
+| **Target distribution** (bar & pie) | ~35% diabetic, 65% non‑diabetic |
+| **Histograms of all numeric features** | Glucose, BMI, Age show right‑skewed distributions |
+| **Boxplots by diabetes outcome** | Higher median glucose, BMI, and Age for diabetic patients |
+| **Count plots for categorical variables** | Gender, smoking status, education, income, employment, ethnicity – clear differences in diabetes prevalence |
+| **Correlation heatmap** | Glucose (0.49) and BMI (0.29) strongest positive correlations with diabetes |
 
-### Web Application
-- **Flask Web Interface** - Clean, responsive UI for real-time predictions
-- **Form Input Validation** - Sanitizes and validates all health metrics
-- **Instant Predictions** - Real-time diabetes risk assessment
-- **Model Selection** - Choose which model to use for prediction
-- **Probability Output** - Get prediction confidence scores
-
-### Kaggle Integration
-- **Competition Submission** - Generate submission files for Kaggle leaderboard
-- **Public & Private Leaderboard** - Validated submissions
-- **Cross-Validation** - Robust model validation strategy
+All EDA plots are included in the `/images` folder.
 
 ---
 
-## 💻 Tech Stack
+## 🧠 Models & Hyperparameters
 
-| Category           | Technology                                      |
-| ------------------ | ----------------------------------------------- |
-| **Languages**      | Python 3.9+                                     |
-| **Web Framework**  | Flask 2.0+                                      |
-| **ML Framework**   | scikit-learn, XGBoost, TensorFlow/Keras         |
-| **Data Processing**| Pandas, NumPy                                   |
-| **Visualization**  | Matplotlib, Seaborn                             |
-| **Model Persistence** | joblib, pickle                               |
-| **Frontend**       | HTML5, CSS3, Bootstrap 5                        |
-| **Deployment**     | Local Server / Cloud Ready                      |
+| Model | Key Hyperparameters |
+|-------|----------------------|
+| **Random Forest** | n_estimators=400, max_depth=18, min_samples_leaf=30, class_weight='balanced' |
+| **XGBoost** | n_estimators=800, max_depth=8, learning_rate=0.05, scale_pos_weight=1.86 |
+| **ANN** | 2 hidden layers (128, 64) with Dropout(0.3 & 0.2), Adam optimizer, class_weight='balanced' |
+
+All models use a `ColumnTransformer` with `StandardScaler` for numeric features and `OneHotEncoder` for categorical ones.
 
 ---
 
-## 🧠 Models Implemented
+## 📈 Performance Summary (Training set)
 
-| Model | Type | Key Features | Hyperparameters |
-|-------|------|--------------|-----------------|
-| **Random Forest** | Ensemble (Bagging) | 400 trees, balanced class weight | n_estimators=400, max_depth=18, min_samples_leaf=30 |
-| **XGBoost** | Ensemble (Boosting) | Gradient boosting with scale_pos_weight | n_estimators=800, max_depth=8, learning_rate=0.05 |
-| **ANN** | Deep Neural Network | 2 hidden layers (128, 64) with Dropout | ReLU activation, Adam optimizer, class_weight='balanced' |
+| Model | ROC AUC | Accuracy |
+|-------|---------|----------|
+| Random Forest | 0.7666 | 0.6843 |
+| **XGBoost** | **0.7946** | **0.7075** |
+| ANN | 0.7069 | 0.6335 |
 
-### Model Architecture (ANN)
+**XGBoost** selected as the final production model.  
+Confusion matrices and ROC curves for all three models are saved in `/images`.
+
+---
+
+## 🌐 Web Application
+
+Built with **Flask** – loads the trained XGBoost pipeline (`diapredict_model.pkl` + `preprocessor.pkl`).
+
+- **Form inputs** – Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin, BMI, DiabetesPedigreeFunction, Age  
+- **Output** – Diabetes risk (Yes/No) + prediction probability  
+- **Responsive UI** – Bootstrap 5
+
+### How to run locally
+
+```bash
+git clone https://github.com/Thahirah-Razmi/Diabetes-Prediction-Kaggle-Challenge.git
+cd Diabetes-Prediction-Kaggle-Challenge
+pip install -r requirements.txt
+python app.py
+# Visit http://127.0.0.1:5000
