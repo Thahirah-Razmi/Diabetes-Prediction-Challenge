@@ -130,7 +130,13 @@ The application will run at ``` http://127.0.0.1:5000 ```
 
 <img width="1004" height="1195" alt="image" src="https://github.com/user-attachments/assets/ee14516a-7a95-4944-aea3-9875b1399906" />
 
+<img width="1004" height="1201" alt="image" src="https://github.com/user-attachments/assets/0f36ee71-690f-497a-91de-bcf6677fbcca" />
 
+<img width="1004" height="1303" alt="image" src="https://github.com/user-attachments/assets/1ff317cd-99c0-428f-a3f1-5ea0780a31c2" />
+
+<img width="1004" height="1223" alt="image" src="https://github.com/user-attachments/assets/79b659c0-797a-467c-9d72-49ace3a6b658" />
+
+<img width="1004" height="1301" alt="image" src="https://github.com/user-attachments/assets/a3b106b1-fd47-4de4-a4d1-0f72813ebc14" />
 
 ## 📊 Kaggle Submissions
 
