@@ -7,6 +7,7 @@
 [![License](https://img.shields.io/badge/License-MIT-green)](./LICENSE)
 
 **End‑to‑end ML solution** for the Kaggle Playground Series S5E12 – Diabetes Prediction.  
+**700k** training records, **300k** test records, 26 features.  
 Three models compared: **XGBoost** (best), **Random Forest**, **Artificial Neural Network**.  
 The winning XGBoost model is deployed as a **Flask web app** for real‑time diabetes risk prediction.
 
@@ -80,9 +81,9 @@ Confusion matrices and ROC curves for all three models are saved in `/images`.
 
 Built with **Flask** – loads the trained XGBoost pipeline (`diapredict_model.pkl` + `preprocessor.pkl`).
 
-- **Form inputs** – Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin, BMI, DiabetesPedigreeFunction, Age  
-- **Output** – Diabetes risk (Yes/No) + prediction probability  
-- **Responsive UI** – Bootstrap 5
+- **Inputs**: Age, alcohol consumption, diet score, sleep, screen time, BMI, waist‑to‑hip ratio, blood pressure, heart rate, cholesterol (total/HDL/LDL), triglycerides, family history, hypertension, cardiovascular history, gender, ethnicity, education, income, smoking, employment.
+- **Output**: Diabetes risk (Diabetic / Non‑Diabetic) + probability percentage.
+- **Responsive UI** with risk meter and health message.
 
 ### How to run locally
 
