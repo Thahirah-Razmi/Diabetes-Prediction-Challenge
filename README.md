@@ -85,21 +85,50 @@ Built with **Flask** – loads the trained XGBoost pipeline (`diapredict_model.p
 - **Output**: Diabetes risk (Diabetic / Non‑Diabetic) + probability percentage.
 - **Responsive UI** with risk meter and health message.
 
-### How to run locally
+### 🚀 Installation
 
+<details>
+<summary><strong>1. Clone Repository</strong></summary>
+  
 ```
 git clone https://github.com/Thahirah-Razmi/Diabetes-Prediction-Kaggle-Challenge.git
 cd Diabetes-Prediction-Kaggle-Challenge
 ```
+</details>
 
+<details>
+<summary><strong>2. Create Virtual Environment (Recommended)</strong></summary>
+  
+```bash
+# Create virtual environment
+python -m venv venv
+
+# Windows
+venv\Scripts\activate
+
+# Linux/Mac
+source venv/bin/activate
+```
+</details>
+
+<details>
+<summary><strong>3. Install Dependencies</strong></summary>
+  
 ```
 pip install -r requirements.txt
 ```
+Or install packages individually:
 
+```bash
+pip install flask numpy pandas scikit-learn xgboost tensorflow matplotlib seaborn joblib
 ```
+
+## 🏃 Running the Application
+
+```bash
 python DiaPredict.py
 ```
-Visit ``` http://127.0.0.1:5000 ```
+The application will run at ``` http://127.0.0.1:5000 ```
 
 ## 📊 Kaggle Submissions
 
